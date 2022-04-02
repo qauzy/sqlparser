@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/xwb1989/sqlparser/dependency/bytes2"
-	"github.com/xwb1989/sqlparser/dependency/sqltypes"
+	"github.com/qauzy/sqlparser/dependency/bytes2"
+	"github.com/qauzy/sqlparser/dependency/sqltypes"
 )
 
 const (
@@ -517,10 +517,11 @@ func (tkn *Tokenizer) Scan() (int, []byte) {
 			}
 			return int(ch), nil
 		case '?':
-			tkn.posVarIndex++
-			buf := new(bytes2.Buffer)
-			fmt.Fprintf(buf, ":v%d", tkn.posVarIndex)
-			return VALUE_ARG, buf.Bytes()
+			//tkn.posVarIndex++
+			//buf := new(bytes2.Buffer)
+			//fmt.Fprintf(buf, ":v%d", tkn.posVarIndex)
+			//return VALUE_ARG, buf.Bytes()
+			return VALUE_ARG, []byte("?")
 		case '.':
 			if isDigit(tkn.lastChar) {
 				return tkn.scanNumber(true)

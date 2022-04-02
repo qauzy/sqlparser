@@ -21,7 +21,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/xwb1989/sqlparser/dependency/querypb"
+	"github.com/qauzy/sqlparser/dependency/querypb"
 )
 
 func TestProtoConversions(t *testing.T) {

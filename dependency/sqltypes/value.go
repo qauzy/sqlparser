@@ -23,10 +23,10 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/xwb1989/sqlparser/dependency/bytes2"
-	"github.com/xwb1989/sqlparser/dependency/hack"
+	"github.com/qauzy/sqlparser/dependency/bytes2"
+	"github.com/qauzy/sqlparser/dependency/hack"
 
-	"github.com/xwb1989/sqlparser/dependency/querypb"
+	"github.com/qauzy/sqlparser/dependency/querypb"
 )
 
 var (

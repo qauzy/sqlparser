@@ -20,10 +20,25 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/xwb1989/sqlparser/dependency/sqltypes"
+	"github.com/qauzy/sqlparser/dependency/sqltypes"
 
-	"github.com/xwb1989/sqlparser/dependency/querypb"
+	"github.com/qauzy/sqlparser/dependency/querypb"
 )
+
+func TestParsedQuery(t *testing.T) {
+	stmt, err := Parse("SELECT sum(a.balance) FROM MemberWallet a WHERE a.coin = :coin")
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	switch stm := stmt.(type) {
+	case *Select:
+		buf := &TrackedBuffer{}
+		stm.SelectExprs.Format(buf)
+		t.Log(buf.String())
+	case *Insert:
+	}
+}
 
 func TestNewParsedQuery(t *testing.T) {
 	stmt, err := Parse("select * from a where id =:id")
